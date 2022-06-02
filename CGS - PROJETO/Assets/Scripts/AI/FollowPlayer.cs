@@ -16,7 +16,8 @@ public class FollowPlayer : MonoBehaviour
 
     private void Start()
     {
-        
+        Cursor.visible = true;
+        Screen.lockCursor = false;
     }
 
     void Update()

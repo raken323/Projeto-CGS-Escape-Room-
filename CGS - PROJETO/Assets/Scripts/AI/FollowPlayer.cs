@@ -9,6 +9,10 @@ public class FollowPlayer : MonoBehaviour
     public NavMeshAgent Agent;
     public bool Seguir;
     public float WaitTime;
+
+    Animator animator;
+
+    
   //  public Transform VisaoLocal;
  //   public LayerMask Layoso; 
  //   private Vector3 LastPos;
@@ -18,10 +22,14 @@ public class FollowPlayer : MonoBehaviour
     {
         Cursor.visible = true;
         Screen.lockCursor = false;
+        animator = GetComponent<Animator>();
     }
 
     void Update()
     {
+
+        animator.SetFloat("Move", Mathf.Abs(Agent.velocity.magnitude));
+
         if (Seguir == true)
         {
             WaitTime = 0;

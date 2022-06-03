@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Keypad : MonoBehaviour
 {
+    public bool isVisible;
+
     [SerializeField]private Text Ans;
     [SerializeField] private Animator Door;
 
@@ -22,6 +24,7 @@ public class Keypad : MonoBehaviour
             Ans.text = "CORRETO";
             Door.SetBool("Open", true);
             StartCoroutine("StopDoor");
+            
         }
         else
         {
@@ -36,4 +39,16 @@ public class Keypad : MonoBehaviour
         Door.SetBool("Open", false);
         Door.enabled = false;
     }
+
+    public void OpenKeyPad()
+    {
+        if (!isVisible)
+        {
+            isVisible = true;
+            gameObject.SetActive(true);
+        }
+
+    }
+
+    
 }
